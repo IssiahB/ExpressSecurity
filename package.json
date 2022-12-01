@@ -1,0 +1,19 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "description": "Project used for learning security",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "author": "Issiah J Banda",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.4",
+    "mongoose-encryption": "^2.1.2",
+    "nodemon": "^2.0.20"
+  }
+}
