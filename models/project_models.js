@@ -19,7 +19,8 @@ const userSchema = new mongoose.Schema({
 userSchema.plugin(encrypt, {
     encryptionKey: encKey,
     signingKey: sigKey,
-    encryptedFields: ['password']
+    encryptedFields: ['password'],
+    additionalAuthenticatedFields: ['email']
 });
 
 const userModel = new mongoose.model('user', userSchema);
