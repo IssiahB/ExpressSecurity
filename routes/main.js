@@ -6,6 +6,9 @@ router.get('/', function(req, res) {
     res.render('home');
 });
 
+router.route('/secrets')
+    .get(controller.secrets);
+
 router.route('/login')
     .get(function(req, res) {
         res.render('login');
@@ -17,5 +20,8 @@ router.route('/register')
         res.render('register');
     })
     .post(controller.registerUser);
+
+router.route('/logout')
+    .get(controller.logoutUser);
 
 module.exports = router;

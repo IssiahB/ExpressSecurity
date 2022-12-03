@@ -26,8 +26,7 @@ Then to install packages run
 To run this project, you will need to add the following environment variables to your .env file
 
 `DB_URI`
-`BASE64_32BYTE_ENCRYPT`
-`BASE64_64BYTE_SIGN`
+`BASE64_64BYTE_SECRET`
 
 Optional:
 `PORT`
@@ -36,8 +35,8 @@ Optional:
 an example of this would be:
 `DB_URI="mongodb://127.0.0.1:27017/userDB"`
 
-**BASE64_32BYTE_ENCRYPT** and **BASE64_64BYTE_SIGN** are just two BASE64
-strings, with 32 bytes and 64 bytes respectivly.
+**BASE64_64BYTE_SIGN** is just a BASE64 string with 64 bytes. It's used
+for user authentication.
 
 **PORT** is optional, it is just an integer specifying the port to
 host the express server.

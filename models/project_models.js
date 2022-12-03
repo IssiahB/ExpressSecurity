@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const encrypt = require('mongoose-encryption');
-
-const encKey = process.env.BASE64_32BYTE_ENCRYPT;
-const sigKey = process.env.BASE64_64BYTE_SIGN;
+const passport = require('passport');
+const passportMongoose = require('passport-local-mongoose');
 
 mongoose.connect(process.env.DB_URI, function(err) {
     if (!err)
@@ -16,14 +14,14 @@ const userSchema = new mongoose.Schema({
     password: String
 });
 
-userSchema.plugin(encrypt, {
-    encryptionKey: encKey,
-    signingKey: sigKey,
-    encryptedFields: ['password'],
-    additionalAuthenticatedFields: ['email']
-});
+userSchema.plugin(passportMongoose);
 
 const userModel = new mongoose.model('user', userSchema);
+
+passport.use(userModel.createStrategy());
+
+passport.serializeUser(userModel.serializeUser());
+passport.deserializeUser(userModel.deserializeUser());
 
 module.exports = {
     User: userModel
